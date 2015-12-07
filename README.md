@@ -1,0 +1,8 @@
+util convert JSONObject to bean
+可以使用其他的json库，但是转换的代码就要稍微改改，大部分的json库接口都差不多，基本改下包名就能用了
+本util使用的是android上的json库，可以看build.gradle里面的json版本信息
+
+使用方法
+根目录运行命令行
+gradle eclipse
+导入这个eclipse工程
