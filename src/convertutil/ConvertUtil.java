@@ -23,6 +23,8 @@ public class ConvertUtil {
 		T result = clazz.newInstance();
 		Field[] dFields = clazz.getDeclaredFields();
 		for (Field field : dFields) {
+			boolean accessible = field.isAccessible();
+			field.setAccessible(true);
 
 			FieldRelation frAnnotation;
 			frAnnotation = field.getAnnotation(FieldRelation.class);
@@ -51,6 +53,7 @@ public class ConvertUtil {
 				Object val = convert(fieldJson, fieldType);
 				field.set(result, val);
 			}
+			field.setAccessible(accessible);
 		}
 		return result;
 	}
